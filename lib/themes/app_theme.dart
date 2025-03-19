@@ -41,4 +41,9 @@ final ThemeData darkTheme = ThemeData(
       padding: WidgetStateProperty.all(EdgeInsets.symmetric(horizontal: 10, vertical: 10))
     )
   ),
+
+  progressIndicatorTheme: ProgressIndicatorThemeData(
+    color: AppColor.accentColor,
+    linearTrackColor: AppColor.textColor,
+  ),
 );

@@ -16,7 +16,7 @@ class TypesList extends StatelessWidget {
       itemBuilder: (context, index) {
         final TypeModel type = typesProvider.types[index];
         return GestureDetector(
-          onTap: () => Navigator.pushNamed(context, "/creators"),
+          onTap: () => Navigator.pushNamed(context, "/creators", arguments: type.id),
           child: Container(
             padding: const EdgeInsets.all(10),
             margin: const EdgeInsets.all(10),
