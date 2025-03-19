@@ -2,6 +2,8 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:mediasquest/app_routes.dart';
+import 'package:mediasquest/providers/types_provider.dart';
+import 'package:mediasquest/services/types_service.dart';
 import 'package:mediasquest/themes/app_theme.dart';
 import 'package:mediasquest/utils/dio_client.dart';
 import 'package:provider/provider.dart';
@@ -11,9 +13,13 @@ void main() async {
 
   final Dio dio = DioClient.dio;
 
+  final TypesService typesService = TypesService(dio);
+
   runApp(
     MultiProvider(
-      providers: [],
+      providers: [
+        ChangeNotifierProvider<TypesProvider>(create: (_) => TypesProvider(typesService)),
+      ],
       child: MyApp(),
     )
   );
