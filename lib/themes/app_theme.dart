@@ -32,4 +32,13 @@ final ThemeData darkTheme = ThemeData(
     titleTextStyle: TextStyle(color: AppColor.textColor, fontSize: 18),
     scrolledUnderElevation: 0
   ),
+
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ButtonStyle(
+      backgroundColor: WidgetStateProperty.all(AppColor.accentColor),
+      iconColor: WidgetStateProperty.all(AppColor.textColor),
+      shape: WidgetStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
+      padding: WidgetStateProperty.all(EdgeInsets.symmetric(horizontal: 10, vertical: 10))
+    )
+  ),
 );
