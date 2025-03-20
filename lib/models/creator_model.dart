@@ -26,4 +26,18 @@ class CreatorModel {
     'medias_completed': mediasCompleted,
     'medias_not_completed': mediasNotCompleted
   };
+
+  CreatorModel copyWith({
+    int? id,
+    String? name,
+    int? mediasCompleted,
+    int? mediasNotCompleted
+  }) {
+    return CreatorModel(
+      id: id ?? this.id,
+      name: name ?? this.name,
+      mediasCompleted: mediasCompleted ?? this.mediasCompleted,
+      mediasNotCompleted: mediasNotCompleted ?? this.mediasNotCompleted
+    );
+  }
 }

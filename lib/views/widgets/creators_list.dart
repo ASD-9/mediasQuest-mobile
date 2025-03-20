@@ -38,12 +38,12 @@ class CreatorsList extends StatelessWidget {
                   children: [
                     Expanded(
                       child: LinearProgressIndicator(
-                        value: creator.mediasCompleted / creator.mediasNotCompleted
+                        value: creator.mediasCompleted / (creator.mediasNotCompleted + creator.mediasCompleted),
                       ),
                     ),
                     const SizedBox(width: 10),
                     Text(
-                      "${creator.mediasCompleted}/${creator.mediasNotCompleted}",
+                      "${creator.mediasCompleted}/${creator.mediasNotCompleted + creator.mediasCompleted}",
                     ),
                   ],
                 )
