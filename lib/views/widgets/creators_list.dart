@@ -5,7 +5,9 @@ import 'package:mediasquest/themes/app_color.dart';
 import 'package:provider/provider.dart';
 
 class CreatorsList extends StatelessWidget {
-  const CreatorsList({super.key});
+  const CreatorsList({super.key, required this.typeId});
+
+  final int typeId;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,7 @@ class CreatorsList extends StatelessWidget {
       itemBuilder: (context, index) {
         final CreatorModel creator = creatorsProvider.creators[index];
         return GestureDetector(
-          onTap: () => Navigator.pushNamed(context, "/medias", arguments: creator.id),
+          onTap: () => Navigator.pushNamed(context, "/medias", arguments: { "creatorId": creator.id, "typeId": typeId }),
           child: Container(
             padding: const EdgeInsets.all(10),
             margin: const EdgeInsets.all(10),

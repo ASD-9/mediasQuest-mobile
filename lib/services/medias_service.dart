@@ -7,9 +7,9 @@ class MediasService {
 
   MediasService(this._dio);
 
-  Future<List<MediaModel>> getMedias(int creatorId) async {
+  Future<List<MediaModel>> getMedias(int creatorId, int typeId) async {
     try {
-      final response = await _dio.get('/medias/creator/$creatorId');
+      final response = await _dio.get('/medias/creator/$creatorId/type/$typeId');
       return (response.data["data"] as List).map((e) => MediaModel.fromJson(e)).toList();
     } catch (e) {
       throw ErrorHandler.getErrorMessage(e);
