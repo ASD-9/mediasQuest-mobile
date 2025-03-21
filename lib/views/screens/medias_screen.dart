@@ -10,9 +10,10 @@ import 'package:mediasquest/views/widgets/reload.dart';
 import 'package:provider/provider.dart';
 
 class MediasScreen extends StatefulWidget {
-  const MediasScreen({super.key, required this.creatorId});
+  const MediasScreen({super.key, required this.creatorId, required this.typeId});
 
   final int creatorId;
+  final int typeId;
 
   @override
   State<MediasScreen> createState() => _MediasScreenState();
@@ -22,7 +23,7 @@ class _MediasScreenState extends State<MediasScreen> {
   @override
   void initState() {
     super.initState();
-    Future.microtask(() => Provider.of<MediasProvider>(context, listen: false).fetchMedias(widget.creatorId));
+    Future.microtask(() => Provider.of<MediasProvider>(context, listen: false).fetchMedias(widget.creatorId, widget.typeId));
   }
 
   @override
@@ -40,7 +41,7 @@ class _MediasScreenState extends State<MediasScreen> {
         : mediasProvider.error != null
           ? Reload(
             error: mediasProvider.error!,
-            onTap: () => mediasProvider.fetchMedias(widget.creatorId),
+            onTap: () => mediasProvider.fetchMedias(widget.creatorId, widget.typeId),
           )
           : MediasList()
     );

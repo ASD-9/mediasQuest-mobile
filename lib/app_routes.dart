@@ -12,7 +12,7 @@ class AppRoutes {
       case "/creators":
         return PageTransition.slideTransition(page: CreatorsScreen(typeId: settings.arguments as int,));
       case "/medias":
-        return PageTransition.slideTransition(page: MediasScreen(creatorId: settings.arguments as int,));
+        return PageTransition.slideTransition(page: MediasScreen(creatorId: (settings.arguments as Map)["creatorId"], typeId: (settings.arguments as Map)["typeId"],));
       default:
         return MaterialPageRoute(builder: (_) => const TypesScreen());
     }

@@ -42,7 +42,7 @@ class _CreatorsScreenState extends State<CreatorsScreen> {
             error: creatorsProvider.error!,
             onTap: () => creatorsProvider.fetchCreators(widget.typeId),
           )
-          : CreatorsList()
+          : CreatorsList(typeId: widget.typeId,)
     );
   }
 }

@@ -26,13 +26,13 @@ class MediasProvider extends ChangeNotifier {
     });
   }
 
-  Future<void> fetchMedias(int creatorId) async {
+  Future<void> fetchMedias(int creatorId, int typeId) async {
     _creatorId = creatorId;
     _isLoading = true;
     _error = null;
     notifyListeners();
     try {
-      _medias = await _mediasService.getMedias(creatorId);
+      _medias = await _mediasService.getMedias(creatorId, typeId);
       _sortMedias();
     } catch (e) {
       _error = e.toString();
