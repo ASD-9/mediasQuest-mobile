@@ -28,10 +28,15 @@ class MediasList extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    media.name,
-                    style: TextStyle(
-                      fontSize: 22
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width / 2,
+                    child: Text(
+                      media.name,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 3,
+                      style: TextStyle(
+                        fontSize: 20
+                      ),
                     ),
                   ),
                   Text(
